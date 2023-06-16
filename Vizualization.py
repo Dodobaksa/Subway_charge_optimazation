@@ -62,10 +62,10 @@ lon_rat = xy_ree[xy_ree['역명'].isin(station['역명'].values)].reset_index(dr
 # In[56]:
 
 
-y_test = np.load('y_test.npy')
+y_test = np.load('prediction_and_real/y_test.npy')
 per_day_client = np.load('per_day_client.npy')
 per_day_profit = np.load('per_day_profit.npy')
-predictions = np.load('predictions.npy')
+predictions = np.load('prediction_and_real/predictions.npy')
 temp = predictions.reshape(10,10,256*256)
 
 min = np.load('min.npy')
