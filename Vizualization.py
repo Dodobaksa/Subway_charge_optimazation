@@ -29,8 +29,8 @@ def r2_score(y_true, y_pred):
 
 
 
-station = pd.read_csv('./최종_station_list.csv')
-xy= pd.read_excel('./서울교통공사_역사정보_20220530.xlsx')
+station = pd.read_csv('최종_station_list.csv')
+xy= pd.read_excel('서울교통공사_역사정보_20220530.xlsx')
 
 start_date = datetime.strptime('2022-12-22', '%Y-%m-%d').date()
 numdays = 10
@@ -62,15 +62,15 @@ lon_rat = xy_ree[xy_ree['역명'].isin(station['역명'].values)].reset_index(dr
 # In[56]:
 
 
-y_test = np.load('./y_test.npy')
-per_day_client = np.load('./per_day_client.npy')
-per_day_profit = np.load('./per_day_profit.npy')
-predictions = np.load('./predictions.npy')
+y_test = np.load('y_test.npy')
+per_day_client = np.load('per_day_client.npy')
+per_day_profit = np.load('per_day_profit.npy')
+predictions = np.load('predictions.npy')
 temp = predictions.reshape(10,10,256*256)
 
-min = np.load('./min.npy')
-max = np.load('./max.npy')
-mean = np.load('./mean.npy')
+min = np.load('min.npy')
+max = np.load('max.npy')
+mean = np.load('mean.npy')
 
 
 # In[63]:
