@@ -133,11 +133,11 @@ if start_button:
         conge=[]
         real=[]
         for time in range(0,10):
-            conge.append(temporal[time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
-            real.append(real_temp[time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
+            conge.append(temporal[time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
+            real.append(real_temp[time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
         r2 = r2_score(real, conge)
-        congestion = temporal[timed][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)]
-        real_con = real_temp[timed][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)]
+        congestion = temporal[timed][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)]
+        real_con = real_temp[timed][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)]
         mae_score = mae([real_con], [congestion])
         if not chk_all:
             st.subheader(f'선택한 시간대의 예상 혼잡도는 :red[{round(congestion*100,1)}%]입니다(MAE:{round(mae_score,2)}).')
@@ -145,8 +145,8 @@ if start_button:
             congestion3=[]
             real_con2 = []
             for time in range(10):
-                congestion3.append(predictions[date_idx][time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
-                real_con2.append(y_test[date_idx][time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
+                congestion3.append(predictions[date_idx][time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
+                real_con2.append(y_test[date_idx][time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
             conge2 = np.mean(congestion3)
             real2 = np.mean(real_con2)
             mae_score2 = mae([real2], [conge2])
@@ -171,8 +171,8 @@ if start_button:
             real_fd=[]
             for day in range(0,10):
                 for time in range(0,10):
-                    viz_all.append(predictions[day][time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
-                    real_fd.append(y_test[day][time][list(station['0'].values).index(option4)][list(station['0'].values).index(option3)])
+                    viz_all.append(predictions[day][time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
+                    real_fd.append(y_test[day][time][list(station['0'].values).index(option3)][list(station['0'].values).index(option4)])
             r22 = r2_score(np.array(real_fd).flatten(),np.array(viz_all).flatten())
             viz_all2 = np.array(viz_all).reshape(10,10)
             viz_all2 = pd.DataFrame(viz_all2,columns=dates,index=['05-07시간대','07-09시간대','09-11시간대','11-13시간대','13-15시간대','15-17시간대','17-19시간대','19-21시간대','21-23시간대','23시이후']).T
