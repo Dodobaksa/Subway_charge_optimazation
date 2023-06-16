@@ -9,7 +9,6 @@ import time
 import streamlit as st
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
-from bokeh.plotting import figure
 
 # In[25]:
 def mae(y_true, y_pred):
