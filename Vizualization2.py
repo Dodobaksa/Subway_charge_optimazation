@@ -273,5 +273,5 @@ if start_button:
         #plt.rcParams['font.family'] = 'Malgun Gothic'
         fig = plt.figure(figsize=(5,2))
         plt.fill_between(sorted(temp[0].flatten()),base[charge_idx]-C[charge_idx]*(np.cos(sorted(temp[0].flatten()))))
-        plt.ylim(1000, 2000)
+        plt.ylim(1000, 2100)
         st.pyplot(fig,use_container_width=False)
