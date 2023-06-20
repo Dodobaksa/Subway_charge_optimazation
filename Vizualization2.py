@@ -148,9 +148,8 @@ if start_button:
         else:
             d_con='혼잡'
         if not chk_all:
-            st.subheader(f'{option1}의 {option2}에 {option3}에서 {option4}까지')
-            st.subheader(f'예상 혼잡도는 :red[{d_con}{round(congestion*100,1)}%]입니다.(MAE:{round(mae_score,3)}))
-            st.write('MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
+            st.subheader(f'선택한 시간대의 목적지까지 예상 혼잡도는 :red[{round(congestion*100,1)}%]입니다(MAE:{round(mae_score,3)}).')
+            st.write('※MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
         else:
             congestion3=[]
             real_con2 = []
@@ -169,7 +168,7 @@ if start_button:
                 d_con='혼잡'
             mae_score2 = mae([real2], [conge2])
             st.subheader(f'{option1}의 목적지까지 평균 혼잡도는 :red[({d_con}{round(conge2*100,1)}%))]입니다(MAE:{round(mae_score2,2)}).')
-            st.write('MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
+            st.write('※MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
         start = lon_rat[lon_rat['역명']==option3.split("_")[1]][['위도','경도']]
         end = lon_rat[lon_rat['역명']==option4.split("_")[1]][['위도','경도']]
         con = pd.concat([start,end],axis=0)
@@ -183,7 +182,7 @@ if start_button:
         
         if not chk_all:
             st.subheader(f'{option1}일 {option3}에서 {option4}까지 시간대 별 혼잡도(설명력: :blue[{round(r2*100,1)}%])')
-            st.write('설명력(r2_score):예측 값과 실제 값 간의 상관 관계를 나타내는 값으로, 모델이 얼마나 잘 데이터를 설명하고 예측하는지를 측정합니다. 0과 1 사이의 값을 가지며, 1에 가까울수록 모델의 예측 성능이 좋다는 의미입니다.')
+            st.write('※설명력(r2_score):예측 값과 실제 값 간의 상관 관계를 나타내는 값으로, 모델이 얼마나 잘 데이터를 설명하고 예측하는지를 측정합니다. 0과 1 사이의 값을 가지며, 1에 가까울수록 모델의 예측 성능이 좋다는 의미입니다.')
             st.area_chart(trans)
         else:
             viz_all=[]
@@ -196,7 +195,7 @@ if start_button:
             viz_all2 = np.array(viz_all).reshape(10,10)
             viz_all2 = pd.DataFrame(viz_all2,columns=dates,index=['05-07시간대','07-09시간대','09-11시간대','11-13시간대','13-15시간대','15-17시간대','17-19시간대','19-21시간대','21-23시간대','23시이후']).T
             st.subheader(f'{option1}일 {option3}에서 {option4}까지 시간대 별 혼잡도(설명력: :blue[{round(r22*100,1)}%])')
-            st.write('설명력(r2_score):예측 값과 실제 값 간의 상관 관계를 나타내는 값으로, 모델이 얼마나 잘 데이터를 설명하고 예측하는지를 측정합니다. 0과 1 사이의 값을 가지며, 1에 가까울수록 모델의 예측 성능이 좋다는 의미입니다.')
+            st.write('※설명력(r2_score):예측 값과 실제 값 간의 상관 관계를 나타내는 값으로, 모델이 얼마나 잘 데이터를 설명하고 예측하는지를 측정합니다. 0과 1 사이의 값을 가지며, 1에 가까울수록 모델의 예측 성능이 좋다는 의미입니다.')
             st.line_chart(viz_all2)
 
         
