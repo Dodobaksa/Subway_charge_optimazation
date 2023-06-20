@@ -1,2 +1,2 @@
 # Subway_charge_optimazation
-Dashboard: https://dodobaksa-subway-charge-optimazation-vizualization2-3bytza.streamlit.app/
+Dashboard: https://dodobaksa-subway-charge-optimazation-vizualization2-0n2oc3.streamlit.app/
