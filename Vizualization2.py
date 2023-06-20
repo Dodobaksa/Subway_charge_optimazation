@@ -167,7 +167,7 @@ if start_button:
             else:
                 d_con='혼잡'
             mae_score2 = mae([real2], [conge2])
-            st.subheader(f'선택한 시간대의 목적지까지 예상 혼잡도는 :red[{d_con}({round(congestion*100,1)}%)]입니다(MAE:{round(mae_score,3)}).')
+            st.subheader(f'선택한 시간대의 목적지까지 예상 혼잡도는 :red[{d_con}({round(conge2*100,1)}%)]입니다(MAE:{round(mae_score,3)}).')
             st.write('※MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
         start = lon_rat[lon_rat['역명']==option3.split("_")[1]][['위도','경도']]
         end = lon_rat[lon_rat['역명']==option4.split("_")[1]][['위도','경도']]
@@ -263,7 +263,7 @@ if start_button:
             front, end= st.columns([0.5,10])
             with end:
                 st.markdown("     "+'△Min,Max,Mean은 각각 Dynamic Pricing의 최저, 최고, 평균 값을 나타냅니다.')
-                st.markdown("     "+'△per_day_clinet는 기본 요금 일괄 적용과 비교하여 하루에 변화된 지하철 수요')
+                st.markdown("     "+'△per_day_client는 기본 요금 일괄 적용과 비교하여 하루에 변화된 지하철 수요')
                 st.markdown("     "+'△per_day_profit은 기본 요금 일괄적용과 비교하여 하루에 벌어들이는 매출액')
         st.write(" ")
         st.write(" ")
@@ -273,4 +273,5 @@ if start_button:
         #plt.rcParams['font.family'] = 'Malgun Gothic'
         fig = plt.figure(figsize=(5,2))
         plt.fill_between(sorted(temp[0].flatten()),base[charge_idx]-C[charge_idx]*(np.cos(sorted(temp[0].flatten()))))
+        plt.ylim(1000, 2000)
         st.pyplot(fig,use_container_width=False)
