@@ -262,9 +262,9 @@ if start_button:
                 st.metric(label="per_day_profit(백만원)", value=round(perday_P2,1))
             front, end= st.columns([0.5,10])
             with end:
-                st.markdown("     "+'△Min,Max,Mean은 각각 Dynamic Pricing의 최저, 최고, 평균 값을 나타냅니다.')
-                st.markdown(f"     "+'△per_day_client는 {radio_select} 일괄 적용과 비교하여 하루에 변화된 지하철 수요')
-                st.markdown(f"     "+'△per_day_profit은 {radio_select} 일괄적용과 비교하여 하루에 벌어들이는 매출액')
+                st.markdown(f'△Min,Max,Mean은 각각 Dynamic Pricing의 최저, 최고, 평균 값을 나타냅니다.')
+                st.markdown(f'△per_day_client는 {radio_select} 일괄 적용과 비교하여 하루에 변화된 지하철 수요')
+                st.markdown(f'△per_day_profit은 {radio_select} 일괄적용과 비교하여 하루에 벌어들이는 매출액')
         st.write(" ")
         st.write(" ")
         st.subheader('Dynamic Pricing 구간')
