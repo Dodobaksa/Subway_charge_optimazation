@@ -148,7 +148,8 @@ if start_button:
         else:
             d_con='혼잡'
         if not chk_all:
-            st.subheader(f'{option1}의 {option2}에 {option3}에서 {option4}까지 예상 혼잡도는 :red[{d_con}{(round(congestion*100,1))}%]입니다(MAE:{round(mae_score,3)}).')
+            st.subheader(f'{option1}의 {option2}에 {option3}에서 {option4}까지')
+            st.subheader(f'예상 혼잡도는 :red[{d_con}({(round(congestion*100,1)}%)]입니다(MAE:{round(mae_score,3)}).
             st.write('MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
         else:
             congestion3=[]
@@ -167,7 +168,7 @@ if start_button:
             else:
                 d_con='혼잡'
             mae_score2 = mae([real2], [conge2])
-            st.subheader(f'{option1}의 목적지까지 평균 혼잡도는 :red[{d_con}{(round(conge2*100,1))}%))]입니다(MAE:{round(mae_score2,2)}).')
+            st.subheader(f'{option1}의 목적지까지 평균 혼잡도는 :red[({d_con}{round(conge2*100,1)}%))]입니다(MAE:{round(mae_score2,2)}).')
             st.write('MAE(평균절대오차): 예측 값과 실제 값 간의 차이를 계산하는 데 사용되는 평가 지표')
         start = lon_rat[lon_rat['역명']==option3.split("_")[1]][['위도','경도']]
         end = lon_rat[lon_rat['역명']==option4.split("_")[1]][['위도','경도']]
