@@ -264,7 +264,7 @@ if start_button:
             with end:
                 st.write(f'△Min,Max,Mean은 각각 Dynamic Pricing의 최저, 최고, 평균 값을 나타냅니다.')
                 st.write(f'△per_day_client는 {radio_select} 일괄 적용과 비교하여 하루에 변화된 지하철 수요')
-                st.write(f'△per_day_profit은 {radio_select} 일괄적용과 비교하여 하루에 벌어들이는 매출액')
+                st.write(f'△per_day_profit은 {radio_select} 일괄 적용과 비교하여 하루에 벌어들이는 매출액')
         st.write(" ")
         st.write(" ")
         st.subheader('Dynamic Pricing 구간')
